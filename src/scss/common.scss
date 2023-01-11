@@ -1,0 +1,151 @@
+// Заголовки, загальні БЕМ блоки та інше...
+
+.page {
+    // .page__main
+    &__main {
+    }
+    // .page__partners
+    &__partners {
+    }
+    // .page__how
+    &__how {
+    }
+    // .page__pathway
+    &__pathway {
+    }
+    // .page__why
+    &__why {
+    }
+    // .page__reviews
+    &__reviews {
+    }
+}
+//========================================================================================================================================================
+
+.title {
+    @include adaptiveValue("font-size", 70, 45);
+    line-height: math.div(65, 70);
+    font-weight: 600;
+    &_how {
+        @include adaptiveValue("font-size", 64, 40);
+    }
+    span {
+        color: $activeColor;
+    }
+}
+
+//========================================================================================================================================================
+.text {
+    line-height: 177%;
+}
+//========================================================================================================================================================
+.form {
+    max-width: rem(533);
+    background-color: #fff;
+    border-radius: rem(10);
+    padding: rem(6);
+    gap: rem(5);
+    display: flex;
+    position: relative;
+    html.light & {
+        background-color: rgba(38, 50, 56, 0.1);
+    }
+    @media (max-width: em(430)) {
+        flex-direction: column;
+    }
+    // .form__input
+    &__input {
+        height: rem(64);
+        flex: 1 1 auto;
+        padding: 0 rem(20);
+        font-weight: 500;
+
+        html.light & {
+            background-color: transparent;
+        }
+        &::placeholder {
+            color: #263238;
+        }
+        &._form-error {
+            &::placeholder {
+                color: red;
+            }
+        }
+    }
+    // .form__button
+    &__button {
+    }
+    &__error {
+        position: absolute;
+        top: 100%;
+        font-size: rem(14);
+        left: rem(25);
+        color: red;
+        margin-top: rem(10);
+    }
+}
+//========================================================================================================================================================
+
+.image-block {
+    text-align: center;
+    align-self: start;
+    overflow: hidden;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: rem(20);
+    @include adaptiveValue("padding-top", 165, 30);
+    @include adaptiveValue("padding-bottom", 165, 30);
+    @include adaptiveValue("padding-left", 45, 30);
+    @include adaptiveValue("padding-right", 45, 30);
+    position: relative;
+    html.light & {
+        background-color: rgba(0, 128, 0, 0.05);
+    }
+    // .image-block_pathway
+    &_pathway {
+        @include adaptiveValue("padding-top", 99, 30);
+        @include adaptiveValue("padding-bottom", 99, 30);
+    }
+    // .image-block__circle
+    &__circle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        @include adaptiveValue("width", 585, 350);
+        @include adaptiveValue("height", 585, 350);
+        &::before {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.37);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            html.light & {
+                border: 1px solid $activeColor;
+            }
+        }
+        // .image-block__circle_1
+        &_1 {
+            &::before {
+                transform: translate(calc(50% - rem(18)), -20%);
+            }
+        }
+        // .image-block__circle_2
+        &_2 {
+            &::before {
+                transform: translate(calc(50% - rem(20)), -6%);
+            }
+        }
+    }
+    // .image-block__item
+    &__item {
+        flex: 1 1 auto;
+        z-index: 5;
+        img {
+            max-width: 100%;
+            border-radius: rem(20);
+        }
+    }
+}
